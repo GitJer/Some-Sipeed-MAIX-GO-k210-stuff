@@ -1,0 +1,3 @@
+Do the cmake thing only once
+Add -fpermissive in flags.make in ~/bin/kendryte/kendryte-standalone-sdk-0.3.0/src/build/CMakeFiles/lcd_a2.dir/
+Then only use make (untill some files are added/deleted)

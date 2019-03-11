@@ -8,5 +8,5 @@ The 'stuff' is:
 * LCD: allowes for using the Adafruit GFX with the LCD screen.
 * lights_on_mic_array: Controls the LEDs on the microphone array via toggling the pins.
 * lights_on_mic_array_SPI: Controls the LEDs on the microphone array via SPI.
-* mics_and_lights_on_array: Reads the microphone signals of the array and indicates the direction (more or less, not using FFT!) 
+* mics_and_lights_on_array: Reads the microphone signals of the array and indicates the direction of the sound (more or less, not using FFT!) 
 

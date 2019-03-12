@@ -12,15 +12,15 @@ The 'stuff' is:
 
 The kendryte demos are (probably) for their KD233 board. There are some differences between that board and the Sipeed MAIX GO but often the main difference is the assignment of functions to pins. For example, assigning the microphone outputs to a pin in the kendryte demos looks like this:
 ```
-	// the four I2S channels for I2S device 0
+  // the four I2S channels for I2S device 0
   fpioa_set_function(42, FUNC_I2S0_IN_D0);
-	fpioa_set_function(43, FUNC_I2S0_IN_D1);
-	fpioa_set_function(44, FUNC_I2S0_IN_D2);
-	fpioa_set_function(45, FUNC_I2S0_IN_D3);
+  fpioa_set_function(43, FUNC_I2S0_IN_D1);
+  fpioa_set_function(44, FUNC_I2S0_IN_D2);
+  fpioa_set_function(45, FUNC_I2S0_IN_D3);
   // the left/right clock
-	fpioa_set_function(46, FUNC_I2S0_WS);
+  fpioa_set_function(46, FUNC_I2S0_WS);
   // the data clock
-	fpioa_set_function(39, FUNC_I2S0_SCLK);
+  fpioa_set_function(39, FUNC_I2S0_SCLK);
 ```
 While for the MAIX GO it looks like this:
 ```
@@ -34,3 +34,7 @@ While for the MAIX GO it looks like this:
   // the data clock
   fpioa_set_function(18, FUNC_I2S0_SCLK);
 ```
+You can find the correct pin numbers by looking at examples, making educated guesses, and looking at the schematic of the MAIX GO. For example, for the microphone array:
+
+<img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/part_of_MAIX_GO_schematic.png" width="100">
+

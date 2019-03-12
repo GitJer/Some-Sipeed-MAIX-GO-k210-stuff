@@ -1,5 +1,5 @@
 This is a repository with some 'stuff' I created while playing with the Sipeed MAIX GO board. That board features a Kendryte K210 processor.
-I use the [kendryte_standalone_sdk](https://github.com/kendryte/kendryte-standalone-sdk) and [kendryte_toolchain](https://kendryte.com/downloads/) for this work.
+I use the [kendryte-standalone-sdk](https://github.com/kendryte/kendryte-standalone-sdk) and [kendryte-toolchain](https://kendryte.com/downloads/) for this work, and often base it on examples in [kendryte-standalone-demo](https://github.com/kendryte/kendryte-standalone-demo). 
 
 The 'stuff' is:
 
@@ -10,3 +10,27 @@ The 'stuff' is:
 * lights_on_mic_array_SPI: Controls the LEDs on the microphone array via SPI.
 * mics_and_lights_on_array: Reads the microphone signals of the array and indicates the direction of the sound (more or less, not using APU or FFT!) 
 
+The kendryte demos are (probably) for their KD233 board. There are some differences between that board and the Sipeed MAIX GO but often the main difference is the assignment of functions to pins. For example, assigning the microphone outputs to a pin in the kendryte demos looks like this:
+```
+	// the four I2S channels for I2S device 0
+  fpioa_set_function(42, FUNC_I2S0_IN_D0);
+	fpioa_set_function(43, FUNC_I2S0_IN_D1);
+	fpioa_set_function(44, FUNC_I2S0_IN_D2);
+	fpioa_set_function(45, FUNC_I2S0_IN_D3);
+  // the left/right clock
+	fpioa_set_function(46, FUNC_I2S0_WS);
+  // the data clock
+	fpioa_set_function(39, FUNC_I2S0_SCLK);
+```
+While for the MAIX GO it looks like this:
+```
+  // the four I2S channels for I2S device 0
+  fpioa_set_function(20, FUNC_I2S0_IN_D0);
+  fpioa_set_function(21, FUNC_I2S0_IN_D1);
+  fpioa_set_function(22, FUNC_I2S0_IN_D2);
+  fpioa_set_function(23, FUNC_I2S0_IN_D3);
+  // the left/right clock
+  fpioa_set_function(19, FUNC_I2S0_WS);
+  // the data clock
+  fpioa_set_function(18, FUNC_I2S0_SCLK);
+```

@@ -31,7 +31,7 @@
 #define FRAME_LEN   128
 uint32_t rx_buf[1024];
 
-/* microphones on the array (silk screen readable, flex flat cable (anoyingly) over mic 4 and LED 6):
+/* microphones on the array (silk screen readable, flex flat cable behind mic 4 and LED 6):
 
        5
    2       6

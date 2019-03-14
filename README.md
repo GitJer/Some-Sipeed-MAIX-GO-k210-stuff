@@ -8,7 +8,8 @@ The 'stuff' is:
 * LCD: allowes for using the Adafruit GFX with the LCD screen.
 * lights_on_mic_array: Controls the LEDs on the microphone array via toggling the pins.
 * lights_on_mic_array_SPI: Controls the LEDs on the microphone array via SPI.
-* mics_and_lights_on_array: Reads the microphone signals of the array and indicates the direction of the sound (more or less, not using APU or FFT!) 
+* mics_and_lights_on_array: Reads the microphone signals of the array and indicates the direction of the sound (more or less, not using APU or FFT!)
+* only_circular_mics_on_array: Only use the 6 circularly placed mics on the array.
 
 The kendryte demos are (probably) for their KD233 board. There are some differences between that board and the Sipeed MAIX GO but often the main difference is the assignment of functions to pins. For example, assigning the microphone outputs to a pin in the kendryte demos looks like this:
 ```

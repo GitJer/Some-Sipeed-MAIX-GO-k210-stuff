@@ -42,7 +42,7 @@ You can find the correct pin numbers by looking at examples, making educated gue
 
 <img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/part_of_MAIX_GO_schematic.png" width="100">
 
-##Compiling:##
+## Compiling:
 
 Note that to get this compiled the -fpermissive compiler flag needs to be set. In the file kendryte-standalone-sdk/cmake/compile-flags.cmake this flag can be added to add_compile_flags:
 

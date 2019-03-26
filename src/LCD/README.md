@@ -4,9 +4,6 @@ It has been assembled from various sources:
 - Arduino
 - Maixpy
 
-I tried to leave the Adafruit and Arduino stuff as close to the original as possible. But in order to get it compiled I had to change/add some lines of code.
+I tried to leave the Adafruit and Arduino stuff as close to the original as possible. 
 
-Note that to get this compiled the -fpermissive compiler flag needs to be set. In the file kendryte-standalone-sdk/cmake/compile-flags.cmake this flag can be added to add_compile_flags:
-
-add_compile_flags(CXX -std=gnu++17 -fpermissive)
-
+See the notes in the README.md in the root of this repository.

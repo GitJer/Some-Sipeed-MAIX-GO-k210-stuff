@@ -34,6 +34,11 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "Adafruit_GFX.h"
 #include "glcdfont.cpp"
 
+// this is necessary because with the kendryte-gnu-toolchain (25-3-2019 version on github) causes a linker error.
+// The root of the problem may actually be related to something from Arduino
+extern "C" void __cxa_pure_virtual() { while (1); }
+
+
 // Many (but maybe not all) non-AVR board installs define macros
 // for compatibility with existing PROGMEM-reading AVR code.
 // Do our own checks and defines here for good measure...

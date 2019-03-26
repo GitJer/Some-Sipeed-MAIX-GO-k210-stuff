@@ -42,3 +42,20 @@ You can find the correct pin numbers by looking at examples, making educated gue
 
 <img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/part_of_MAIX_GO_schematic.png" width="100">
 
+Compiling:
+
+Note that to get this compiled the -fpermissive compiler flag needs to be set. In the file kendryte-standalone-sdk/cmake/compile-flags.cmake this flag can be added to add_compile_flags:
+
+add_compile_flags(CXX -std=gnu++17 -fpermissive)
+
+At first I used the pre-compiled toolchain from the Kendryte website, but then (25-3-2019) switched to the versions on github [kendryte-gnu-toolchain](https://github.com/kendryte/kendryte-gnu-toolchain). This caused two additional problems. There was an "undefined reference to `vtable for __cxxabiv1::__si_class_type_info" error, which was solved by adding yet another compile flag: 
+
+```
+add_compile_flags(CXX -std=gnu++17 -fpermissive -fno-rtti)
+```
+
+There is also a linker error "undefined reference to `__cxa_pure_virtual'" for some of the files. The root cause probably has something to do with the Arduino origin of those files. This was solved by adding the followin at the start of the problematic files:
+
+```
+extern "C" void __cxa_pure_virtual() { while (1); }
+```

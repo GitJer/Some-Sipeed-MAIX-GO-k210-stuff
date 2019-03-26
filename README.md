@@ -54,7 +54,7 @@ At first I used the pre-compiled toolchain from the Kendryte website, but then (
 add_compile_flags(CXX -std=gnu++17 -fpermissive -fno-rtti)
 ```
 
-There is also a linker error "undefined reference to `__cxa_pure_virtual'" for some of the files. The root cause probably has something to do with the Arduino origin of those files. This was solved by adding the followin at the start of the problematic files:
+There is also a linker error "undefined reference to `__cxa_pure_virtual'" for some of the files. The root cause probably has something to do with the Arduino origin of those files. This was solved by adding the following at the start of the problematic files:
 
 ```
 extern "C" void __cxa_pure_virtual() { while (1); }

@@ -13,6 +13,7 @@ The 'stuff' is:
 * pcm_play_happy: generates pcm sound (poorly).
 * camera_lcd:	demo that shows the ov2640 camera on the LCD screen.
 * binocular_camera_lcd:	demo for the binocular camera module.
+* touchscreen: simple demo for the LCD touchscreen.
 
 The kendryte demos are (probably) for their KD233 board. There are some differences between that board and the Sipeed MAIX GO but often the main difference is the assignment of functions to pins. For example, assigning the microphone outputs to a pin in the kendryte demos looks like this:
 ```

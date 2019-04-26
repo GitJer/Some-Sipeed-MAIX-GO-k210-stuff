@@ -6,11 +6,11 @@ Goal
 The goal of this is to see how fast the GPIO pins can be toggled up and
 down from software. Basically all it does is:
 
+```
 while (1):
-
-GPIO pin = 1
-
-GPIO pin = 0
+    GPIO pin = 1
+    GPIO pin = 0
+```
 
 Purpose
 -------
@@ -57,28 +57,21 @@ GPIO with SDK
 With the following program, the length of the pulse is measured on an
 oscilloscope:
 
-\#include &lt;gpio.h&gt;
-
-\#include &lt;fpioa.h&gt;
+```
+#include <gpio.h>
+#include <fpioa.h>
 
 int main() {
-
-fpioa\_set\_function(44 , FUNC\_GPIO0);
-
-gpio\_set\_drive\_mode(0 , GPIO\_DM\_OUTPUT);
-
-while (1) {
-
-gpio\_set\_pin(0, GPIO\_PV\_HIGH);
-
-gpio\_set\_pin(0, GPIO\_PV\_LOW);
-
+    fpioa_set_function(44 , FUNC_GPIO0);
+    gpio_set_drive_mode(0 , GPIO_DM_OUTPUT);
+    while (1) {
+        gpio_set_pin(0, GPIO_PV_HIGH);
+        gpio_set_pin(0, GPIO_PV_LOW);
+    }
 }
+```
 
-}
-
-![](media/image1.bmp){width="6.299305555555556in"
-height="3.779861111111111in"}
+![](media/image1.bmp)
 
 As can be seen the width of the pulse is about 316 nanoseconds.
 
@@ -86,26 +79,19 @@ GPIOHS with SDK
 ---------------
 
 With the high speed gpio function this can be improved:
-
-\#include &lt;gpiohs.h&gt;
-
-\#include &lt;fpioa.h&gt;
+```
+#include <gpiohs.h>
+#include <fpioa.h>
 
 int main() {
-
-fpioa\_set\_function(44 , FUNC\_GPIOHS0);
-
-gpiohs\_set\_drive\_mode(0 , GPIO\_DM\_OUTPUT);
-
-while (1) {
-
-gpiohs\_set\_pin(0, GPIO\_PV\_HIGH);
-
-gpiohs\_set\_pin(0, GPIO\_PV\_LOW);
-
+    fpioa_set_function(44 , FUNC_GPIOHS0);
+    gpiohs_set_drive_mode(0 , GPIO_DM_OUTPUT);
+    while (1) {
+        gpiohs_set_pin(0, GPIO_PV_HIGH);
+        gpiohs_set_pin(0, GPIO_PV_LOW);
+    }
 }
-
-}
+```
 
 ![](media/image2.bmp){width="6.299305555555556in"
 height="3.779861111111111in"}
@@ -117,35 +103,23 @@ GPIOHS minimal SDK
 
 If we use the SDK but try to minimize the number of calls we get the
 code:
-
-\#include &lt;gpiohs.h&gt;
-
-\#include &lt;fpioa.h&gt;
+```
+#include <gpiohs.h>
+#include <fpioa.h>
 
 int main() {
-
-fpioa\_set\_function(44 , FUNC\_GPIOHS0);
-
-gpiohs\_set\_drive\_mode(0 , GPIO\_DM\_OUTPUT);
-
-uint32\_t org;
-
-volatile uint32\_t \*bits = 0x3800100c;
-
-while (1) {
-
-org = (\*bits) & \~1;
-
-\*bits = org | (GPIO\_PV\_HIGH & 1);
-
-org = (\*bits) & \~1;
-
-\*bits = org | (GPIO\_PV\_LOW & 1);
-
+    fpioa_set_function(44 , FUNC_GPIOHS0);
+    gpiohs_set_drive_mode(0 , GPIO_DM_OUTPUT);
+    uint32_t org;
+    volatile uint32_t *bits = 0x3800100c;
+    while (1) {
+        org = (*bits) & ~1;
+        *bits = org | (GPIO_PV_HIGH & 1);
+        org = (*bits) & ~1;
+        *bits = org | (GPIO_PV_LOW & 1);
+    }
 }
-
-}
-
+```
 And the width of the pulse is now about 47 nanosecond:
 
 ![](media/image3.bmp){width="6.299305555555556in"
@@ -157,20 +131,15 @@ Maixduino
 If we try the same with Maixduino, which uses the gpiohs in the file
 ".../Maixduino/hardware/k210/0.3.7/cores/arduino/wiring\_digital.c", we
 get:
-
+```
 void setup() {
-
-pinMode(44, OUTPUT);
-
+    pinMode(44, OUTPUT);
 }
-
 void loop() {
-
-digitalWrite(44, HIGH);
-
-digitalWrite(44, LOW);
-
+  digitalWrite(44, HIGH); 
+  digitalWrite(44, LOW); 
 }
+```
 
 ![](media/image4.bmp){width="6.299305555555556in"
 height="3.779861111111111in"}The width of the pulse is now about 219
@@ -183,18 +152,14 @@ Maixpy
 ------
 
 In Maixpy we can also use the high speed gpio's:
-
+```
 from Maix import GPIO
-
-fm.register(board\_info.DVP\_PWDN, fm.fpioa.GPIOHS1)
-
-pin\_44 = GPIO(GPIO.GPIOHS1, GPIO.OUT)
-
+fm.register(board_info.DVP_PWDN, fm.fpioa.GPIOHS1)
+pin_44 = GPIO(GPIO.GPIOHS1, GPIO.OUT)
 while (True):
-
-.....pin\_44.value(0)
-
-.....pin\_44.value(1)
+.....pin_44.value(0)
+.....pin_44.value(1)
+```
 
 And we get a minimal pulse width of about 5.3 microsecond. But there is
 a lot of jitter. Often the pulse width is 5.5 microsecond, and sometimes

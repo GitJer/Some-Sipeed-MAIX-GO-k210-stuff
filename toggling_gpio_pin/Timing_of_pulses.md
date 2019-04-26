@@ -37,13 +37,13 @@ Setup:
 
 The results from the measurements (see below) is:
 
-  -------------------- ------------------
-  GPIOHS minimal SDK   47 ns
-  GPIOHS with SDK      104 ns
-  Maixduino            219 ns
-  GPIO with SDK        316 ns
-  Maixpy               5.5 µs - 7.16 µs
-  -------------------- ------------------
+  | --------------------|------------------|
+  | GPIOHS minimal SDK | 47 ns |
+  | GPIOHS with SDK | 104 ns |
+  | Maixduino | 219 ns |
+  | GPIO with SDK | 316 ns |
+  | Maixpy | 5.5 µs - 7.16 µs |
+  | -------------------- | ------------------ |
 
 The conclusion is that going to the bare minimum produces the lowest
 pulse length. However, being able to have high level, general, SDK code
@@ -73,7 +73,7 @@ int main() {
 
 ![](media/image1.bmp)
 
-As can be seen the width of the pulse is about 316 nanoseconds.
+As can be seen, the width of the pulse is about 316 nanoseconds.
 
 GPIOHS with SDK
 ---------------
@@ -93,8 +93,7 @@ int main() {
 }
 ```
 
-![](media/image2.bmp){width="6.299305555555556in"
-height="3.779861111111111in"}
+![](media/image2.bmp)
 
 As can be seen, the width is now about 104 nanoseconds.
 
@@ -122,8 +121,7 @@ int main() {
 ```
 And the width of the pulse is now about 47 nanosecond:
 
-![](media/image3.bmp){width="6.299305555555556in"
-height="3.779861111111111in"}
+![](media/image3.bmp)
 
 Maixduino
 ---------
@@ -141,8 +139,8 @@ void loop() {
 }
 ```
 
-![](media/image4.bmp){width="6.299305555555556in"
-height="3.779861111111111in"}The width of the pulse is now about 219
+![](media/image4.bmp)
+The width of the pulse is now about 219
 nanosecond, which is double that of using the SDK directly. This
 overhead is caused by a number of function calls with several statements
 (and further calls) within those functions: loop, digitalWrite,
@@ -157,8 +155,8 @@ from Maix import GPIO
 fm.register(board_info.DVP_PWDN, fm.fpioa.GPIOHS1)
 pin_44 = GPIO(GPIO.GPIOHS1, GPIO.OUT)
 while (True):
-.....pin_44.value(0)
-.....pin_44.value(1)
+    pin_44.value(0)
+    pin_44.value(1)
 ```
 
 And we get a minimal pulse width of about 5.3 microsecond. But there is
@@ -166,5 +164,4 @@ a lot of jitter. Often the pulse width is 5.5 microsecond, and sometimes
 even as high as 7.16 microsecond. This jitter may come from the FreeRTOS
 producing interrupts.
 
-![](media/image5.bmp){width="6.299305555555556in"
-height="3.779861111111111in"}
+![](media/image5.bmp)

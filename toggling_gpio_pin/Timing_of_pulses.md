@@ -18,7 +18,7 @@ Purpose
 None, really. The raw performance of toggling GPIO pins is not all that
 interesting for real world applications.
 
-Setup:
+Setup
 ------
 
 -   Pin 44 is used -&gt; 1.8 V
@@ -32,20 +32,18 @@ Setup:
 -   Maixpy: MicroPython v0.1.1-114-g094cbf6 on 2019-03-18; Sipeed\_M1
     with kendryte-k210
 
-    1.  Results:
-        --------
+Results
+--------
 
 The results from the measurements (see below) is:
 
-  | --------------------|------------------|
-  | GPIOHS minimal SDK | 47 ns |
-  | GPIOHS with SDK | 104 ns |
-  | Maixduino | 219 ns |
-  | GPIO with SDK | 316 ns |
-  | Maixpy | 5.5 µs - 7.16 µs |
-  | -------------------- | ------------------ |
-
-The conclusion is that going to the bare minimum produces the lowest
+ * GPIOHS minimal SDK: 47 ns
+ * GPIOHS with SDK: 104 ns
+ * Maixduino: 219 ns
+ * GPIO with SDK: 316 ns
+ * Maixpy: 5.5 µs - 7.16 µs
+ 
+The conclusion is that going to the bare minimum produces the shortest
 pulse length. However, being able to have high level, general, SDK code
 available makes programming much more easy. What is noteworthy in that
 respect is that the Maixduino effort produced a reasonably high level
@@ -140,6 +138,7 @@ void loop() {
 ```
 
 ![](media/image4.bmp)
+
 The width of the pulse is now about 219
 nanosecond, which is double that of using the SDK directly. This
 overhead is caused by a number of function calls with several statements

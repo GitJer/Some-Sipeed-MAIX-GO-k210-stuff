@@ -1,9 +1,8 @@
-1.  Measuring GPIO pulse width on a K210 Sipeed Maix Go board
-    ---------------------------------------------------------
+Measuring GPIO pulse width on a K210 Sipeed Maix Go board
+---------------------------------------------------------
 
-    Goal
-    ----
-
+Goal
+----
 The goal of this is to see how fast the GPIO pins can be toggled up and
 down from software. Basically all it does is:
 

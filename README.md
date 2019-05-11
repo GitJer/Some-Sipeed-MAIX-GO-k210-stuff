@@ -15,6 +15,7 @@ The 'stuff' is:
 * binocular_camera_lcd:	demo for the binocular camera module.
 * touchscreen: simple demo for the LCD touchscreen.
 * accelerometer: reads the x, y and z acceleration of the MSA300 accelerometer
+* pwm: correct an error in the kendryte document
 
 
 The kendryte demos are (probably) for their KD233 board. There are some differences between that board and the Sipeed MAIX GO but often the main difference is the assignment of functions to pins. For example, assigning the microphone outputs to a pin in the kendryte demos looks like this:

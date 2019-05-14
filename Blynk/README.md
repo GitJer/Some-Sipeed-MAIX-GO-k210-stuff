@@ -15,13 +15,13 @@ You can use the example main.cpp. First fill in the token, ssid, pwd and IP addr
 
 On your phone/tablet make a Blynk project and get the token. My project looks like this:
 
-<img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/Blynk_project.jpg" width="100">
-
+<img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/Blynk/Blynk_project.jpg" width="100">
+          
 Where the button is connected to V1 and the zeRGBa is connected to V2:
 
-<img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/Blynk_button_settings.jpg" width="100">
+<img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/Blynk/Blynk_button_settings.jpg" width="100">
 
-<img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/Blynk_zeRGBa_settings.jpg" width="100">
+<img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/Blynk/Blynk_zeRGBa_settings.jpg" width="100">
 
 
  

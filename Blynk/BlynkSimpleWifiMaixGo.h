@@ -15,11 +15,6 @@
 #define BLYNK_INFO_CONNECTION "ESP8266"
 #endif
 
-// Fix for WiFi shield (it has a crazy ping duration)
-// #define BLYNK_TIMEOUT_MS 6000UL
-//#define BLYNK_SEND_ATOMIC
-// #define BLYNK_SEND_CHUNK 1024
-
 #include <WiFiEsp.h>
 #include <Adapters/BlynkWiFiCommon.h>
 

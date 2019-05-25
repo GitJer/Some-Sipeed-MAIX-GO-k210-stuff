@@ -22,7 +22,7 @@ Where the button is connected to V1 and the zeRGBa is connected to V2:
 <img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/Blynk/Blynk_button_settings.jpg" width="100">
 
 <img src="https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff/blob/master/Blynk/Blynk_zeRGBa_settings.jpg" width="100">
-
+In this image at the bottom, the write interval is set to 100ms, but setting it to 500ms is more stable.
 
  
 

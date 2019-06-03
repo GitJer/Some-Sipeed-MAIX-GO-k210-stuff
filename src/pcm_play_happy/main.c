@@ -23,6 +23,8 @@
 #include "fpioa.h"
 #include "uarths.h"
 #include "math.h"
+#include "gpio.h"
+
 
 #define RX_BUF_THRESHOLD     (1024*8)
 #define MAX_BUF_LEN          (1024*16)
@@ -191,6 +193,13 @@ int main(void)
     fpioa_set_function(34, FUNC_I2S0_OUT_D1);
     fpioa_set_function(35, FUNC_I2S0_SCLK);
     fpioa_set_function(33, FUNC_I2S0_WS);
+
+    // power on audio amplifier
+    fpioa_set_function(32, FUNC_GPIO0); 
+    gpio_init();
+    gpio_set_drive_mode(0, GPIO_DM_OUTPUT);
+    gpio_set_pin(0, GPIO_PV_HIGH);
+
 
     // It doesn't seem to matter which of the following two bits are 1:
     // 11000000(0xC0), 00110000(0x30), 00001100(0x0C), 00000011(0x03).

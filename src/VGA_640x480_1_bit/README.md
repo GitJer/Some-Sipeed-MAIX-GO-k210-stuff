@@ -20,7 +20,7 @@ Thus there is a gap of all zero signals after sending an image line and before s
 The monitor I use is capable of infering that this must be the horizontal sync.
 
 ## SPI
-Normal SPI uses only one data line. The SPI on the MaixGo can also do DUAL, QUAD and OCTAL, resp. 2, 4 and 8 data lines in parallel
+Normal SPI uses only one data line. The SPI on the MaixGo can also do DUAL, QUAD and OCTAL, resp. 2, 4 and 8 data lines in parallel.
 The SPI0 clock is based on PLL0. There is a complicated calculation to determine the actual PLL0 clock based on the 
 requested frequency in sysctl_pll_set_freq(). Additionally, the SPI clock is an integer divide of the PLL0 clock
 and the requested SPI clock in spi_set_clk_rate().

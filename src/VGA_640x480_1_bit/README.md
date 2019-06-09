@@ -1,7 +1,7 @@
 This code produces a VGA signal of 640x480 @ 60Hz. This version is only for a binary image.
 
 ## VGA signal:
-On many web-sites on the internet the timing of VGA signals is explained, and how to connect it to a monitor
+On many web-sites on the internet the timing of VGA signals is explained, and how to connect it to a monitor.
 This code produces a VGA 640x480@60Hz signal.
 The future goal is to encoded the image to be displayed into one byte per pixel:
 * bit 0: the horizontal sync signal (on the MaixGo this is LCD pin D0)

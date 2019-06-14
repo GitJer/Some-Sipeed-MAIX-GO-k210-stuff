@@ -36,9 +36,9 @@ You can specify the minimum and maximum PLL0 frequencies to consider at the top 
 
 For example, when trying to find a SPI0 frequency of 65MHz and specifying to search between PLL0 frequencies from 200MHz to 800MHz, the result is:
 
-'''
+```
 The requested SPI0 frequency is 65000000
 below: pll0=767000000 spi0=63916666 (diff=1083334)
 above: pll0=780000000 spi0=65000000 (diff=0)
-'''
+```
 

@@ -41,4 +41,5 @@ The requested SPI0 frequency is 65000000
 below: pll0=767000000 spi0=63916666 (diff=1083334)
 above: pll0=780000000 spi0=65000000 (diff=0)
 ```
+Which indicates that the closest frequency below the desired frequency is 63916666 (if a PLL0 of 767000000 is used), and that the closest above (or in this case: at) the desired frequency is 65000000 if PLL0 is set to 780000000.
 

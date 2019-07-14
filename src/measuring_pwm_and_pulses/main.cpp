@@ -1,8 +1,5 @@
 #include <stdio.h>
-// #include <timer.h>
 #include <unistd.h>
-// #include <plic.h>
-// #include <sysctl.h>
 #include "my_timer.h"
 #include "pwm_in.h"
 

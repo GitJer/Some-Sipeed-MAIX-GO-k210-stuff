@@ -10,8 +10,9 @@
 uint32_t dummy;
 volatile int PwmIn::gpiohs_number;
 volatile uint32_t PwmIn::period;
-volatile my_timer PwmIn::my_time;
 volatile uint32_t PwmIn::pulsewidth;
+volatile uint64_t PwmIn::zero_time;
+
 
 PwmIn::PwmIn(int _physical_pin, int _gpiohs_number)
 { // the physical pin and the gpiohs to use
@@ -21,7 +22,6 @@ PwmIn::PwmIn(int _physical_pin, int _gpiohs_number)
     plic_init();
     sysctl_enable_irq();
     // set the timer configuration: timer device, channel and time step (1000 = 1 microsecond)
-    my_time.set_timer_device_channel_dt(0, 0, 1000);
 
     // connect physical pin (physical_pin) to function gpiohs_number
     fpioa_set_function(physical_pin, (fpioa_function_t)(FUNC_GPIOHS0 + gpiohs_number));
@@ -32,6 +32,7 @@ PwmIn::PwmIn(int _physical_pin, int _gpiohs_number)
     // set the PWM period and pulse width to 0
     period = 0;
     pulsewidth = 0;
+    zero_time = 0;
 }
 
 int PwmIn::irq_gpiohs_key(void *ctx)
@@ -40,15 +41,16 @@ int PwmIn::irq_gpiohs_key(void *ctx)
     {
         // there was a rising edge
         // recored the period (i.e. time since last rising edge)
-        period = my_time.get_current_time();
-        // restart the timer
-        my_time.reset();
+        uint64_t current_time = sysctl_get_time_us();
+        period = current_time - zero_time;
+        // 'restart' the timer by saving this point in time
+        zero_time = current_time;
     }
     else
     {
         // there was a falling edge
         // recored the time, this is the length of the pulse
-        pulsewidth = my_time.get_current_time();
+        pulsewidth = sysctl_get_time_us() - zero_time;
     }
     return 0;
 }

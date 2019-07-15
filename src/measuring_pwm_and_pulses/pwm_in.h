@@ -1,4 +1,3 @@
-#include "my_timer.h"
 #include <gpiohs.h>
 
 #ifndef PWMIN
@@ -31,10 +30,9 @@ private:
     // the gpiohs number
     volatile static int gpiohs_number;
 
-    // the timer/clock
-    volatile static my_timer my_time;
     // the pulsewidth and the period of the PWM signal
     volatile static uint32_t pulsewidth, period;
+    volatile static uint64_t zero_time;
 };
 
 #endif

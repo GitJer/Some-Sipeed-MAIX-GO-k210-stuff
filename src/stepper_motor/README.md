@@ -1,0 +1,1 @@
+This is a demo for the stepper motor (42BYGH 17HS4401S) and driver (DRV8825). I chose to have all the physical pin and GPIOHS assignments in the constructor because the stepper motor is typically used in a larger program which may also use certain pins or GPIOHSs.

@@ -23,6 +23,7 @@ The 'stuff' is:
   * Calculate PLL0 and SPI0 clock settings
   * transform an image into RGB232
 * measuring_pwm_and_pulses: measure the period, pulse width and duty cycle of pwm signals, it can also measure the width of occasional pulses
+* stepper motor driver using DRV8825
 
 
 The kendryte demos are (probably) for their KD233 board. There are some differences between that board and the Sipeed MAIX GO but often the main difference is the assignment of functions to pins. For example, assigning the microphone outputs to a pin in the kendryte demos looks like this:
